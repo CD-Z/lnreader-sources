@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 class Novelight implements Plugin.PluginBase {
   id = 'novelight';
   name = 'Novelight';
-  version = '1.0.8';
+  version = '1.0.9';
   icon = 'src/en/novelight/icon.png';
   site = 'https://novelight.net/';
 
@@ -88,6 +88,7 @@ class Novelight implements Plugin.PluginBase {
             'Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0',
           'Accept': '*/*',
           'Accept-Language': 'en-US,en;q=0.5',
+          'Accept-Encoding': 'gzip, deflate, br, zstd',
           'Referer': this.site + novelPath,
           'X-Requested-With': 'XMLHttpRequest',
           'Sec-GPC': '1',
@@ -102,12 +103,22 @@ class Novelight implements Plugin.PluginBase {
           'Cache-Control': 'no-cache',
         },
       },
-    ).then(async r => ((await r.json()) as { html: string }).html);
+    ).then(async r =>
+      (await r.text())
+        .replace(`{"html": "\\n`, '')
+        .replace(/\\"/g, '"')
+        .replace(/\\n/g, '')
+        .replace(`\\n"}`, ''),
+    );
+    // console.log(parseHTML('<html>' + chaptersRaw + '</html>')('a'));
+    console.log(chaptersRaw);
 
     const chapter: Plugin.ChapterItem[] = [];
 
-    parseHTML(chaptersRaw)('a').each((idx, ele) => {
+    parseHTML('<html>' + chaptersRaw + '</html>')('a').each((idx, ele) => {
       const title = parseHTML(ele)('.title').text().trim();
+      // console.log(ele);
+
       let date;
 
       try {
