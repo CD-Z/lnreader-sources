@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 class Novelight implements Plugin.PluginBase {
   id = 'novelight';
   name = 'Novelight';
-  version = '1.0.7';
+  version = '1.0.8';
   icon = 'src/en/novelight/icon.png';
   site = 'https://novelight.net/';
 
@@ -88,7 +88,6 @@ class Novelight implements Plugin.PluginBase {
             'Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0',
           'Accept': '*/*',
           'Accept-Language': 'en-US,en;q=0.5',
-          'Accept-Encoding': 'gzip, deflate, br, zstd',
           'Referer': this.site + novelPath,
           'X-Requested-With': 'XMLHttpRequest',
           'Sec-GPC': '1',
