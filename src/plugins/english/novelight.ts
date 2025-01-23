@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 class Novelight implements Plugin.PluginBase {
   id = 'novelight';
   name = 'Novelight';
-  version = '1.0.6';
+  version = '1.0.7';
   icon = 'src/en/novelight/icon.png';
   site = 'https://novelight.net/';
 
@@ -93,6 +93,7 @@ class Novelight implements Plugin.PluginBase {
           'X-Requested-With': 'XMLHttpRequest',
           'Sec-GPC': '1',
           'Connection': 'keep-alive',
+          'Content-Type': 'application/json',
           'Cookie': `csrftoken=${csrftoken}`,
           'Sec-Fetch-Dest': 'empty',
           'Sec-Fetch-Mode': 'cors',
@@ -102,14 +103,7 @@ class Novelight implements Plugin.PluginBase {
           'Cache-Control': 'no-cache',
         },
       },
-    ).then(
-      async r =>
-        (
-          JSON.parse(
-            (await r.text()).replace(/</g, '<').replace(/>/g, '>'),
-          ) as { html: string }
-        ).html,
-    );
+    ).then(async r => ((await r.json()) as { html: string }).html);
 
     const chapter: Plugin.ChapterItem[] = [];
 
