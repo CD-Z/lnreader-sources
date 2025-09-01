@@ -1,3 +1,6 @@
+# DO NOT EDIT
+# THIS FILE IS AUTO GENERATED FROM blank_report_issue.yml in the .github/scripts folder.
+
 name: Issue report
 description: Report a source issue in LNReader
 labels: [Bug]
@@ -65,6 +68,7 @@ body:
         - "English: HotNovelPub"
         - "English: Inkitt"
         - "English: Ippotranslations"
+        - "English: KDT Novels"
         - "English: Keopi Translations"
         - "English: KnoxT"
         - "English: Lazy Girl Translations"
@@ -95,6 +99,7 @@ body:
         - "English: NobleMTL"
         - "English: Novel Bin"
         - "English: NovelBuddy.io"
+        - "English: NovelCool"
         - "English: Novel Fire"
         - "English: NovelFull"
         - "English: Novel Hall"
@@ -123,6 +128,7 @@ body:
         - "English: Scribble Hub"
         - "English: SleepyTranslations"
         - "English: SonicMTL"
+        - "English: Stellar Realm"
         - "English: StorySeedling"
         - "English: Sweet Escape"
         - "English: System Translation"
@@ -194,6 +200,7 @@ body:
         - "Русский: Jaomix"
         - "Русский: MTL Novel (RU)"
         - "Русский: Neobook"
+        - "Русский: NovelCool (RU)"
         - "Русский: НовелОВХ"
         - "Русский: Ranobes (RU)"
         - "Русский: Renovels"
@@ -230,7 +237,6 @@ body:
         - "Türkçe: NABİ SCANS"
         - "Türkçe: Namevt"
         - "Türkçe: Novel oku"
-        - "Türkçe: Novelokutr"
         - "Türkçe: NovelTR"
         - "Türkçe: Ragnar Scans"
         - "Türkçe: ThNovels"
@@ -348,7 +354,7 @@ body:
           required: true
         - label: I have written a short but informative title.
           required: true
-        - label: I have updated the app to version **[2.0.0](https://github.com/LNReader/lnreader/releases/tag/v2.0.0-beta.3).** #(https://github.com/LNReader/lnreader/releases/latest)**.
+        - label: I have updated the app to version **[2.0.0](https://github.com/LNReader/lnreader/releases/tag/v2.0.0-beta.3).**
           required: true
         - label: I have updated all installed extensions.
           required: true
