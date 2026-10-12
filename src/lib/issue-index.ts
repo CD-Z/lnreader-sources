@@ -1,9 +1,10 @@
+import localIssueIndex from './issue-index.min.json';
 export type CategoryCode = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 export type IssueGroup = [CategoryCode, number, ...number[]];
 export type IssueIndex = Record<string, IssueGroup[]>;
 
 export const ISSUE_INDEX_URL =
-  import.meta.env.VITE_ISSUE_INDEX_URL ||
+  import.meta.env?.VITE_ISSUE_INDEX_URL ||
   'https://raw.githubusercontent.com/LNReader/lnreader-plugins/issue-index/issue-index.min.json';
 
 export const CATEGORY_LABELS = [
@@ -84,7 +85,7 @@ export async function fetchIssueIndex(): Promise<IssueIndex> {
   try {
     return await fetchAndParse(ISSUE_INDEX_URL);
   } catch {
-    return fetchAndParse('/issue-index.min.json');
+    return parseIssueIndex(localIssueIndex);
   }
 }
 
